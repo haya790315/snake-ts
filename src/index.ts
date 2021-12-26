@@ -7,3 +7,4 @@ import GameControl from "../src/components/GameControl";
 
 
 const Game = new GameControl();
+

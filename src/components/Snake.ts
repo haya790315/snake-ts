@@ -15,14 +15,14 @@ class Snake {
   
 
   get X (){
-   return this.head.offsetLeft;
+  return this.head.offsetLeft;
   }
 
   get Y (){
     return this.head.offsetTop;
   }
 
-  set X (value){
+  set X(value:number){
     this.head.style.left = value+'px';
   }
 
@@ -37,6 +37,7 @@ class Snake {
   }
   
 }
+
 
 
 export default Snake;
