@@ -19,16 +19,17 @@ class GameControl  {
   init (){
     document.addEventListener("keydown",this.keydownHandler.bind(this),true); 
     this.run();
+    
 
   }
 
   keydownHandler(event: KeyboardEvent) {
-    event.preventDefault();
+    // event.preventDefault();
     this.direction=event.key
   }
   
   run (){
-    switch (this.direction) {
+    try{switch (this.direction) {
       case "ArrowUp":
       this.snake.Y -= 10;
         
@@ -51,9 +52,27 @@ class GameControl  {
         
       default:
         break;
+      }}catch (e:any) {
+        alert(e.message);
+        this.isLive = false;
+      }
+
+      this.checkEatFood(this.snake.X,this.snake.Y);
+      
+      
+      this.isLive && setTimeout(this.run.bind(this),300-(this.scorePanel.level-1)*30);
+      
+
+  }
+
+  
+  checkEatFood(X:number,Y:number){
+    if(X===this.food.X&&Y===this.food.Y){
+      this.scorePanel.addScore();
+      this.snake.addBody();
+      this.food.change();
     }
 
-    this.isLive && setTimeout(this.run.bind(this),300-(this.scorePanel.level-1)*30);
   }
   
 }
