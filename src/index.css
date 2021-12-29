@@ -51,6 +51,7 @@
   background-color:#000;
   border:1px solid var(--background-color);
   position:absolute;
+  display: flex;
 }
 
 #food{
