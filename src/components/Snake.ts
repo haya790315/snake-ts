@@ -61,6 +61,7 @@ class Snake {
 
     }
     
+    
     this.move();
     this.head.style.top = value + "px";
     this.checkHeadBody();
